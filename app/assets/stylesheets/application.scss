@@ -1,0 +1,7 @@
+/*
+*= require material_icons
+*/
+@import "materialize/components/color-variables";
+$primary-color: darken(red, 20%) !default;
+$secondary-color: darken(red, 20%) !default;
+@import "materialize";

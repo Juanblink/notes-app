@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <%= form_for :filters, method: 'get', html: { class: 'input-field col s12' } do |f| %>
+    <div class="input-field col s12">
+      <%= material_icon.search.css_class('prefix') %>
+      <%= f.text_field :title, placeholder: 'Search by title', value: params.dig(:filters, :title), autofocus: true %>
+    </div>
+  <% end %>
+
+  <% @notes.each do |note| %>
+    <div class="col s12">
+      <%= link_to note_path(note) do %>
+        <div class="card" style="position: relative;">
+          <div class="card-content black-text">
+            <span class="card-title"><%= note.title %></span>
+            <span class="right" style="position: absolute; top: 5px; right: 10px; font-size: 100%;">
+              <%= format_as_localtime note.created_at %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+    
+  <% end %>
+<div class="row">
+  <a href="https://www.linkedin.com/in/juan-chavez-bab7a5297/" target="_blank" class="btn waves-effect waves-light" style="background-color: #0077b5; color: white; margin-left: 10px;">
+    <i class="material-icons left">person</i>
+    LinkedIn - Juan Manuel Chávez Peralta
+  </a>
+</div>
+
+</div>
+
+
+
+</div>
+<div class="fixed-action-btn">
+  <%= link_to new_note_path, class: 'btn-floating btn-large', title: 'New note' do %>
+    <%= material_icon.add %>
+  <% end %>
+</div>

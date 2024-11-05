@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Juan Chavez - PETSA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <div class="navbar-fixed">
+      <nav>
+      <div class="nav-wrapper">
+      <%= link_to notes_path, class: 'brand-logo center' do %>
+
+        Juan Chavez to do list - GRUPO PETSA
+          <img src="https://www.grupopetsa.com/img/grupo1.db431206.png" alt="Logo" style="vertical-align: left; height: 30px; margin-right: 10px;">
+      <% end %>
+    </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css' %>
+<%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/sweetalert2@11' %>
+
+  </body>
+</html>
