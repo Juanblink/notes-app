@@ -1,33 +1,26 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  notices:
+    note_created: "The note was successfully created."
+    note_updated: "The note was successfully updated."
+    note_deleted: "The note was successfully deleted."
+  app:
+    search_placeholder: "Search by title"
+    language_toggle: "Change language SPANISH"
+    language_tooltip: "Switch language EN/ES"
+    header_title: "Juan Chavez to-do list"
+    new_note_tooltip: "New note!"
+  errors:
+    template:
+      header:
+        one: "1 error prohibited this note from being saved:"
+        other: "%{count} errors prohibited this note from being saved:"
+      body: "Please review the following issues:"
+  activerecord:
+    errors:
+      models:
+        note:
+          attributes:
+            title:
+              blank: "Title cannot be blank."
+            body:
+              blank: "Body cannot be blank."

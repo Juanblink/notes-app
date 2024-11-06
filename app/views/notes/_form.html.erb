@@ -1,8 +1,8 @@
 <%= form_with(model: note) do |form| %>
   <% if note.errors.any? %>
     <div id="error_explanation">
-      <h5><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h5>
-
+      <h5><%= I18n.t("errors.template.header", count: note.errors.count) %></h5>
+      
       <ul>
         <% note.errors.each do |error| %>
           <li>&bull; <%= error.full_message %></li>
@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
 
   <div class="row" style="margin-top: 7mm">
     <div class="input-field col s12">

@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :find_note, only: %i[show edit update destroy]
 
   def index
-    @notes = fetch_notes
+    @notes_by_month = fetch_notes
   end
 
   def show; end
@@ -17,7 +17,7 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
     respond_to do |format|
       if @note.save
-        format.html { redirect_to note_path(@note), notice: "La nota ha sido creada con éxito." }
+        format.html { redirect_to note_path(@note), notice: I18n.t("notices.note_created") }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -29,7 +29,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to note_path(@note), notice: "La nota ha sido actualizada con éxito." }
+        format.html { redirect_to note_path(@note), notice: I18n.t("notices.note_updated") }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_path, notice: "La nota ha sido eliminada exitosamente." }
+      format.html { redirect_to notes_path, notice: I18n.t("notices.note_deleted") }
       format.json { head :no_content }
     end
   end
@@ -50,11 +50,10 @@ class NotesController < ApplicationController
 
   def fetch_notes
     notes = Note.order(created_at: :desc)
-    return notes unless params[:filters].present?
-
-    filters = params[:filters].permit(:title)
-    notes = notes.search_by_title(filters[:title]) if filters[:title].present?
-    notes
+    notes = notes.search_by_title(params[:filters][:title]) if params[:filters]&.dig(:title).present?
+    
+    # Agrupar las notas por mes y año de creación
+    notes.group_by { |note| note.created_at.strftime("%B %Y") }
   end
 
   def find_note

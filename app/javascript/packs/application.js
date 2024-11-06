@@ -22,3 +22,40 @@ document.addEventListener('turbolinks:load', function () {
     elems.forEach(elem => M.textareaAutoResize(elem))
   }
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const body = document.body;
+
+  // Función para aplicar el modo oscuro
+  function enableDarkTheme() {
+    body.classList.add('dark-theme');
+    themeIcon.textContent = 'brightness_7'; // Icono de sol para modo claro
+    localStorage.setItem('theme', 'dark');
+  }
+
+  // Función para aplicar el modo claro
+  function enableLightTheme() {
+    body.classList.remove('dark-theme');
+    themeIcon.textContent = 'brightness_2'; // Icono de luna para modo oscuro
+    localStorage.setItem('theme', 'light');
+  }
+
+  // Checar preferencia guardada y aplicar tema
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    enableDarkTheme();
+  } else {
+    enableLightTheme();
+  }
+
+  // Cambiar entre temas al hacer clic en el botón
+  themeToggle.addEventListener('click', () => {
+    if (body.classList.contains('dark-theme')) {
+      enableLightTheme();
+    } else {
+      enableDarkTheme();
+    }
+  });
+});

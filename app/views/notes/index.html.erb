@@ -1,43 +1,44 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <%= form_for :filters, method: 'get', html: { class: 'input-field col s12' } do |f| %>
     <div class="input-field col s12">
       <%= material_icon.search.css_class('prefix') %>
-      <%= f.text_field :title, placeholder: 'Search by title', value: params.dig(:filters, :title), autofocus: true %>
+      <%= f.text_field :title, placeholder: I18n.t('app.search_placeholder'), value: params.dig(:filters, :title), autofocus: true %>
     </div>
   <% end %>
 
-  <% @notes.each do |note| %>
-    <div class="col s12">
-      <%= link_to note_path(note) do %>
-        <div class="card" style="position: relative;">
-          <div class="card-content black-text">
-            <span class="card-title"><%= note.title %></span>
-            <span class="right" style="position: absolute; top: 5px; right: 10px; font-size: 100%;">
-              <%= format_as_localtime note.created_at %>
-            </span>
-          </div>
-        </div>
-      <% end %>
-
-    </div>
+  <% @notes_by_month.each do |month, notes| %>
+    <h4 class="col s12"><%= month %></h4> <!-- Encabezado del mes -->
     
+    <% notes.each do |note| %>
+      <div class="col s12 m6 l4">
+        <%= link_to note_path(note) do %>
+          <div class="card" style="position: relative;">
+            <div class="card-content black-text">
+              <span class="card-title"><%= note.title %></span>
+              <span class="right" style="position: absolute; top: 5px; right: 10px; font-size: 100%;">
+                <%= format_as_localtime note.created_at %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-<div class="row">
-  <a href="https://www.linkedin.com/in/juan-chavez-bab7a5297/" target="_blank" class="btn waves-effect waves-light" style="background-color: #0077b5; color: white; margin-left: 10px;">
-    <i class="material-icons left">person</i>
-    LinkedIn - Juan Manuel Chávez Peralta
-  </a>
 </div>
 
-</div>
-
-
-
-</div>
 <div class="fixed-action-btn">
-  <%= link_to new_note_path, class: 'btn-floating btn-large', title: 'New note' do %>
+  <%= link_to new_note_path, class: 'btn-floating btn-large pulse tooltipped', data: { tooltip: I18n.t('app.new_note_tooltip'), position: 'left' } do %>
     <%= material_icon.add %>
   <% end %>
 </div>
+
+<!-- Script para inicializar el tooltip -->
+<script>
+  document.addEventListener('turbolinks:load', function() { // Usamos turbolinks:load si está activo en la aplicación
+    const elems = document.querySelectorAll('.tooltipped');
+    M.Tooltip.init(elems);
+  });
+</script>
+
+<!-- Carga de Materialize JS (asegúrate de que esté después del script de inicialización del tooltip) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

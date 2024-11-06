@@ -6,28 +6,104 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Estilos -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Script para aplicar el tema guardado antes de cargar el contenido -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark-theme');
+        }
+      })();
+    </script>
+
+    <style>
+      /* Estilo para la barra de navegación en ambos modos */
+      nav {
+        background-color: #8B0000; /* Rojo oscuro */
+      }
+
+      /* Estilo solo para el modo oscuro */
+      .dark-theme {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      .dark-theme .card {
+        background-color: #F0ADAE;
+        color: #0F0000;
+      }
+
+      .dark-theme .btn-floating {
+        background-color: #8B0000;
+      }
+
+      #theme-icon {
+        font-size: 36px; 
+        color: white; 
+        margin-bottom: 1.5rem; 
+      }
+    </style>
   </head>
 
   <body>
-   <div class="navbar-fixed">
+    <div class="navbar-fixed">
       <nav>
-      <div class="nav-wrapper">
-      <%= link_to notes_path, class: 'brand-logo center' do %>
+        <div class="nav-wrapper">
+          <%= link_to notes_path, class: 'brand-logo center', data: { turbolinks: false } do %>
+            <span id="header-title">Juan Chavez to do list - GRUPO PETSA</span>
+          <% end %>
 
-        Juan Chavez to do list - GRUPO PETSA
-          <img src="https://www.grupopetsa.com/img/grupo1.db431206.png" alt="Logo" style="vertical-align: left; height: 30px; margin-right: 10px;">
-      <% end %>
-    </div>
+          <!-- Botones de tema e idioma en un contenedor div -->
+          <div class="right" style="margin-right: 15px; margin-top: -10px;">
+            <button id="theme-toggle" class="btn-flat mb-4" style="padding: 0; background: transparent; border: none;">
+              <i id="theme-icon" class="material-icons">brightness_2</i> <!-- Icono de luna -->
+            </button>
+          </div>
+          <div class="left" style="margin-left: 15px; margin-top: -10px;">
+            <%= link_to I18n.t('app.language_toggle'), request.params.merge(locale: I18n.locale == :en ? :es : :en), id: "language-toggle", class: "btn-flat mb-4 tooltipped", data: { tooltip: I18n.t('app.language_tooltip') }, style: "color: white; font-weight: bold;" %>
+          </div>
+        </div>
       </nav>
     </div>
 
     <div class="container">
       <%= yield %>
     </div>
-    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css' %>
-<%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/sweetalert2@11' %>
 
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css' %>
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/sweetalert2@11' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Script para el cambio de tema e inicialización del tooltip -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Función para alternar el tema
+        function toggleTheme() {
+          if (document.documentElement.classList.contains('dark-theme')) {
+            document.documentElement.classList.remove('dark-theme');
+            themeIcon.textContent = 'brightness_2'; // Icono de luna
+            localStorage.setItem('theme', 'light'); // Guardar preferencia
+          } else {
+            document.documentElement.classList.add('dark-theme');
+            themeIcon.textContent = 'brightness_7'; // Icono de sol
+            localStorage.setItem('theme', 'dark'); // Guardar preferencia
+          }
+        }
+
+        // Agregar evento de clic para alternar el tema
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Inicializar tooltip
+        const tooltipElements = document.querySelectorAll('.tooltipped');
+        M.Tooltip.init(tooltipElements);
+      });
+    </script>
   </body>
 </html>

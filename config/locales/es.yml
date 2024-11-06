@@ -1,0 +1,28 @@
+es:
+  notices:
+    note_created: "La nota ha sido creada con éxito."
+    note_updated: "La nota ha sido actualizada con éxito."
+    note_deleted: "La nota ha sido eliminada con éxito."
+  app:
+    search_placeholder: "Buscar por título"
+    language_toggle: "Cambiar idioma ESPAÑOL"
+    language_tooltip: "Cambiar de idioma ES/EN"
+    header_title: "Lista de tareas de Juan Chavez"
+    new_note_tooltip: "¡Nueva nota!"
+  errors:
+    template:
+      header:
+        one: "1 error impidió que se guardara esta nota:"
+        other: "%{count} errores impidieron que se guardara esta nota:"
+      body: "Por favor, revisa los siguientes problemas:"
+    messages:
+      blank: "no puede estar en blanco."
+  activerecord:
+    errors:
+      models:
+        note:
+          attributes:
+            title:
+              blank: "El título no puede estar en blanco."
+            body:
+              blank: "El cuerpo no puede estar en blanco."
