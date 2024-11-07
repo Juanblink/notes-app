@@ -53,7 +53,8 @@ class NotesController < ApplicationController
     notes = Note.all
 
     # Aplicar el filtro de título si está presente
-    notes = notes.search_by_title(params[:filters][:title]) if params[:filters]&.dig(:title).present?
+    notes = notes.search_by_title_and_body(params[:filters][:title]) if params[:filters]&.dig(:title).present?
+
 
     # Aplicar el tipo de ordenamiento según el parámetro 'order'
     case params[:filters]&.dig(:order)

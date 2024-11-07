@@ -4,7 +4,7 @@ en:
     note_updated: "The note was successfully updated."
     note_deleted: "The note was successfully deleted."
   app:
-    search_placeholder: "Search by title"
+    search_placeholder: "Search by title or body"
     language_toggle: "Change language to SPANISH"
     language_tooltip: "Switch language EN/ES"
     header_title: "Juan Chavez to-do list"
@@ -14,6 +14,7 @@ en:
     option_2: "Oldest"
     option_3: "Alphabetical A-Z"
     option_4: "Alphabetical Z-A"
+    header_title: "Juan Chavez to-do list"
     dropdown_placeholder: "Select order option" # Placeholder del dropdown
     search: "Search"
   errors:

@@ -5,18 +5,44 @@
 $primary-color: darken(red, 20%) !default;
 $secondary-color: darken(red, 20%) !default;
 @import "materialize";
+
 /* Estilos para el tema oscuro */
-.dark-theme .select-dropdown, .dark-theme input.select-dropdown {
+.dark-theme {
+  background-color: #121212; /* Color de fondo oscuro */
+  color: #e0e0e0; /* Color del texto general */
+}
 
-    color: #e0e0e0; 
-  }
- 
-  .select-dropdown, input.select-dropdown {
+/* Estilos para inputs y selects en modo oscuro */
+.dark-theme .select-dropdown,
+.dark-theme input.select-dropdown,
+.dark-theme input[type="text"],
+.dark-theme textarea {
+  color: #e0e0e0; /* Color del texto dentro de inputs y selects */
+  background-color: #333; /* Color de fondo para inputs y selects */
+}
 
-    color: #000;
-  }
+.dark-theme .select-dropdown li > span {
+  color: #e0e0e0; /* Color del texto en la lista desplegable */
+}
 
-  .select-dropdown li > span {
-    color: #000; 
-  }
+/* Estilo de placeholder para inputs */
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+  color: #aaaaaa; /* Color del placeholder */
+}
 
+/* Estilos para el botón de envío */
+.dark-theme .btn {
+  background-color: #444; /* Color de fondo del botón en modo oscuro */
+  color: #e0e0e0; /* Color del texto del botón */
+}
+
+.dark-theme .btn:hover {
+  background-color: #666; /* Color de fondo del botón al pasar el ratón */
+}
+
+/* Estilos para la tarjeta */
+.dark-theme .card {
+  background-color: #222; /* Color de fondo de la tarjeta */
+  color: #e0e0e0; /* Color del texto de la tarjeta */
+}
