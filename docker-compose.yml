@@ -12,3 +12,7 @@ services:
       "
     volumes:
       - ./:/app
+    ports:
+      - "3000:3000" # Mapea el puerto 3000 del contenedor al 3000 de la máquina host
+    environment:
+      - RAILS_ENV=development # Define el entorno de Rails

@@ -31,7 +31,9 @@ en:
             title:
               blank: "Title cannot be blank."
               taken: "A note with this title already exists."
+              label: "Title"
             body:
               blank: "Body cannot be blank."
+              label: "Body"
   date:
     month_names: [~, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]

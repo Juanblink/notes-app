@@ -10,15 +10,14 @@
 
     <!-- Select de ordenamiento con placeholder -->
     <div class="input-field col s12 m3">
-      <%= f.select :order, options_for_select([
-        [I18n.t('app.dropdown_placeholder'), ''], # Placeholder
-        [I18n.t('app.option_1'), 'mas_reciente'],
-        [I18n.t('app.option_2'), 'mas_vieja'],
-        [I18n.t('app.option_3'), 'az'],
-        [I18n.t('app.option_4'), 'za']
-      ], selected: params.dig(:filters, :order)), { include_blank: false } %>
-    </div>
-    
+    <%= f.select :order, options_for_select([
+      [I18n.t('app.dropdown_placeholder'), ''], # Placeholder
+      [I18n.t('app.option_1'), 'mas_reciente'],
+      [I18n.t('app.option_2'), 'mas_vieja'],
+      [I18n.t('app.option_3'), 'az'],
+      [I18n.t('app.option_4'), 'za']
+    ], selected: params.dig(:filters, :order)), { include_blank: false, id: 'order-select' } %>
+  </div>
     <!-- Botón de envío -->
     <div class="input-field col s12 m1">
       <%= f.submit I18n.t('app.search'), class: 'btn' %>

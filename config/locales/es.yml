@@ -33,7 +33,9 @@ es:
             title:
               blank: "El título no puede estar en blanco."
               taken: "ya existe una nota con este título."
+              label: "Título"
             body:
               blank: "El cuerpo no puede estar en blanco."
+              label: "Cuerpo"
   date:
     month_names: [~, "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]

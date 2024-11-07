@@ -46,3 +46,28 @@ $secondary-color: darken(red, 20%) !default;
   background-color: #222; /* Color de fondo de la tarjeta */
   color: #e0e0e0; /* Color del texto de la tarjeta */
 }
+      /* Estilo para la barra de navegación en ambos modos */
+      nav {
+        background-color: #8B0000; /* Rojo oscuro */
+      }
+
+      /* Estilo solo para el modo oscuro */
+      .dark-theme {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      .dark-theme .card {
+        background-color: #F0ADAE;
+        color: #0F0000;
+      }
+
+      .dark-theme .btn-floating {
+        background-color: #8B0000;
+      }
+
+      #theme-icon {
+        font-size: 36px; 
+        color: white; 
+        margin-bottom: 1.5rem; 
+      }

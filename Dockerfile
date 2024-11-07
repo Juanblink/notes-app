@@ -1,19 +1,28 @@
 FROM ruby:3.0.1-buster
 
-WORKDIR /app
+# Instala las dependencias necesarias
+RUN apt-get update -y && apt-get install -y \
+  curl \
+  npm \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sh -
-
-RUN apt-get update -y && apt-get install -y npm
-
+# Instala Yarn
 RUN npm install --global yarn
 
+# Configura el directorio de trabajo
+WORKDIR /app
+
+# Copia el Gemfile y Gemfile.lock para instalar las gems
 COPY Gemfile* ./
 
+# Instala las gems
 RUN bundle install
 
+# Copia el resto de la aplicación
 COPY . .
 
+# Instala Webpacker
 RUN rails webpacker:install
 
-CMD ["rails", "db:setup"]
+# Comando por defecto
+CMD ["rails", "server", "-b", "0.0.0.0"]
