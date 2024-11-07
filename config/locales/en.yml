@@ -5,10 +5,17 @@ en:
     note_deleted: "The note was successfully deleted."
   app:
     search_placeholder: "Search by title"
-    language_toggle: "Change language SPANISH"
+    language_toggle: "Change language to SPANISH"
     language_tooltip: "Switch language EN/ES"
     header_title: "Juan Chavez to-do list"
     new_note_tooltip: "New note!"
+    dropdown_label: "Select an option"
+    option_1: "Most recent"
+    option_2: "Oldest"
+    option_3: "Alphabetical A-Z"
+    option_4: "Alphabetical Z-A"
+    dropdown_placeholder: "Select order option" # Placeholder del dropdown
+    search: "Search"
   errors:
     template:
       header:
@@ -22,5 +29,8 @@ en:
           attributes:
             title:
               blank: "Title cannot be blank."
+              taken: "A note with this title already exists."
             body:
               blank: "Body cannot be blank."
+  date:
+    month_names: [~, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]

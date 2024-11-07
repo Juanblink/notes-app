@@ -5,15 +5,22 @@ es:
     note_deleted: "La nota ha sido eliminada con éxito."
   app:
     search_placeholder: "Buscar por título"
-    language_toggle: "Cambiar idioma ESPAÑOL"
+    language_toggle: "Cambiar idioma a INGLES"
     language_tooltip: "Cambiar de idioma ES/EN"
     header_title: "Lista de tareas de Juan Chavez"
     new_note_tooltip: "¡Nueva nota!"
+    dropdown_label: "Selecciona una opción"
+    option_1: "Más reciente"
+    option_2: "Más antiguo"
+    option_3: "Alfabético A-Z"
+    option_3: "Alfabético Z-A"
+    dropdown_placeholder: "Selecciona una opción de ordenamiento" # Placeholder del dropdown
+    search: "Buscar"
   errors:
     template:
       header:
         one: "1 error impidió que se guardara esta nota:"
-        other: "%{count} errores impidieron que se guardara esta nota:"
+        other: "%{count} errores impidieron que se guardara esta nota:" 
       body: "Por favor, revisa los siguientes problemas:"
     messages:
       blank: "no puede estar en blanco."
@@ -24,5 +31,8 @@ es:
           attributes:
             title:
               blank: "El título no puede estar en blanco."
+              taken: "ya existe una nota con este título."
             body:
               blank: "El cuerpo no puede estar en blanco."
+  date:
+    month_names: [~, "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]

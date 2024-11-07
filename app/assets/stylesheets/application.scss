@@ -5,3 +5,18 @@
 $primary-color: darken(red, 20%) !default;
 $secondary-color: darken(red, 20%) !default;
 @import "materialize";
+/* Estilos para el tema oscuro */
+.dark-theme .select-dropdown, .dark-theme input.select-dropdown {
+
+    color: #e0e0e0; 
+  }
+ 
+  .select-dropdown, input.select-dropdown {
+
+    color: #000;
+  }
+
+  .select-dropdown li > span {
+    color: #000; 
+  }
+

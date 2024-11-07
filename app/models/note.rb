@@ -13,3 +13,6 @@ class Note < ApplicationRecord
     pattern.gsub(/[%_\\]/, '\\\\\\&')
   end
 end
+class Note < ApplicationRecord
+  validates :title, presence: true, uniqueness: { message: "ya existe una nota con este título" }
+end
