@@ -5,52 +5,56 @@ Este es un repositorio para mostrar los resultados de la prueba tecnica.
 La aplicación es un bloc de notas, hecha en Ruby on Rails con
 MaterializeCSS.
 
-La aplicación cumple con los siguientes puntos solicitados:
+Mejorar responsividad del índice:
+![image](https://github.com/user-attachments/assets/8f075929-4f17-497c-98e5-112afe09736f)
+![image](https://github.com/user-attachments/assets/59f35d90-ca8c-4594-9399-f33afc7dbe94)
+![image](https://github.com/user-attachments/assets/85b4dbfd-dd50-4f19-a336-eda3a5224fc8)
 
-- Tener un encabezado, color rojo, donde esté el nombre de la aplicación. ✅
-- En el encabezado, el título de la aplicación debe ser un link para mandar al usuario al índice. ✅
-- El índice debe mostrar: ✅
-  - Una nota por fila. ✅
-  - Las notas ordenadas de más reciente a más antigua. ✅
-  - La fecha y hora de creación en la parte superior derecha de cada nota. ✅
-  - La hora de creación debe ser la hora local. ✅
-  - Un campo para buscar por título: ✅
-    - Encontrará las notas que contengan lo buscado en cualquier parte del título. ✅
-    - La búsqueda no debe hacer distinción entre mayúsculas o minúsculas. ✅
-    - Si hay múltiples palabras buscadas, debe buscar que todas las palabras estén presentes en el título, sin importar su orden. ✅
-    - Debe poder buscar caracteres especiales también (`$`, `_`, `\`, `*`, `%`). ✅
-- Al hacer clic en cada nota, debe enviar a la vista completa de la nota, donde: ✅
-  - se debe mostrar el cuerpo de la nota, ✅
-  - respetando saltos de línea en caso de tenerlos, ✅
-  - con un ícono indicado para borrar la nota, ✅
-  - y otro para editarla. ✅
-- Debe haber un botón de `Nueva nota` en el índice, también color rojo, que envíe al usuario a la interfaz de creación de notas. ✅
-- Al crear o editar una nota: ✅
-  - Si el título o el cuerpo de la nota están vacíos, no debe guardarse la nota. ✅
-  - Si el título y el cuerpo tienen contenido, debe poder crearse la nota. ✅
-  - El cuerpo de la nota debe permitir saltos de línea. ✅
-  - Si el cuerpo de la nota es muy grande, se debe ajustar automáticamente para mostrar todo el contenido. ✅
-  - Después de guardar la nota, se debe redireccionar al usuario a la vista completa de la nota recién guardada. ✅
+Se deberá dividir el índice en secciones, separando las notas segun el mes en el que fueron creadas
+![image](https://github.com/user-attachments/assets/4773b818-998a-49b5-a9c7-cd541b3a6a60)
 
-### Capturas y ejemplos
+Agregar un "tooltip" al botón de Nuevo con el texto "Nueva nota"
+![image](https://github.com/user-attachments/assets/974ffb97-10a4-401f-bdd0-2f4954f32127)
+![image](https://github.com/user-attachments/assets/eba904e1-6ea4-44fc-a1f9-6085a3d03988)
 
-- Index
-![image](https://github.com/user-attachments/assets/3497bf10-f172-482d-ada6-41fe6c288546)
+Agregar un botón en el encabezado que permita cambiar a modo oscuro la aplicación
+![image](https://github.com/user-attachments/assets/19b9015f-5562-4508-af17-a0ec91b094af)
+Modo oscuro:
+![image](https://github.com/user-attachments/assets/bf1a8061-f2a7-46ea-a89c-bbc7bf6231f9)
+![image](https://github.com/user-attachments/assets/af41fa72-607c-42c0-8826-34b776bc5fb7)
+![image](https://github.com/user-attachments/assets/d0b389e7-293c-46c0-af34-e9b12f71e32c)
 
-- Vista completa
-![image](https://github.com/user-attachments/assets/a637cb87-f21d-44d6-abf1-e8599a6d51b2)
+Modo claro:
+![image](https://github.com/user-attachments/assets/d307bd60-77c6-4f32-900c-542e06da8f65)
+![image](https://github.com/user-attachments/assets/0730cad3-a17f-4200-83b3-d5ffe34f09a9)
+![image](https://github.com/user-attachments/assets/503ee16b-4150-422a-b56c-9cafd57a68ae)
 
-- Interfaz de edición
-![image](https://github.com/user-attachments/assets/9b0f694f-5c1c-4ba1-b761-44654dc26749)
-![image](https://github.com/user-attachments/assets/c4007ef6-6343-417e-b644-6c2bc2e0cb14)
+Agregar un botón en el encabezado que permita cambiar el idioma de la aplicación
+![image](https://github.com/user-attachments/assets/f780f5d1-323d-49ff-aba0-d435aa2ad5c9)
 
-- Interfaz de creación
+Agregar seleccionador de orden a mostrar de las notas
+![image](https://github.com/user-attachments/assets/216f6ec2-74fb-4c9b-b06a-92f430443997)
 
-![image](https://github.com/user-attachments/assets/28792f26-aac3-4061-b062-674bcf551d37)
-![image](https://github.com/user-attachments/assets/ea130352-d4d3-4a9d-a049-d9098408b1f6)
+Se espera que las opciones sean "Mas reciente a mas antiguo", "mas antiguo a mas reciente", "alfabetico A-Z", "alfabetico Z-A"
+Oldest:
+![image](https://github.com/user-attachments/assets/2a5b6cf0-8e80-41cb-abb9-fead1839e561)
+Recent:
+![image](https://github.com/user-attachments/assets/417161f2-3889-423b-bd9e-473fc6921e6a)
+A-Z:
+![image](https://github.com/user-attachments/assets/b8feb22a-2361-4f2b-94d4-88646fbbf936)
+Z-A:
+![image](https://github.com/user-attachments/assets/f085142b-83a1-4c8a-860c-c4877c557937)
 
-- Filtrado (Carecteres especiales y letras)
-![image](https://github.com/user-attachments/assets/db06f136-14c6-4bb5-a634-3afcd63de8dd)
-![image](https://github.com/user-attachments/assets/7c28e22b-c004-4c4f-8156-3646436f87dc)
+Agregar código para evitar que se guarden dos notas con el mísmo título
+![image](https://github.com/user-attachments/assets/2eab55e4-f590-4905-b321-cf3948852422)
+
+Utilizar los seeds de la aplicación para asegurarse que se crearán 200 notas distintas al hacer una nueva instalación de la aplicación
+![image](https://github.com/user-attachments/assets/f8c2fd48-f62f-4476-87f2-eac9827c9598)
+
+Convertir el campo "Buscar por título" a un campo genérico para "Buscar"
+![image](https://github.com/user-attachments/assets/fdf7a54f-8cc9-4640-a6f3-0d01787e2ae3)
+![image](https://github.com/user-attachments/assets/429a3aa7-04c7-4e49-9f65-ef91c0b3bf1b)
 
 
+Se espera que la ruta raiz del proyecto "http://localhost:3000/" muestre la aplicación, en lugar de redirigir el navegador a "http://localhost:3000/notes"
+Asimismo, todas las rutas de "/notes/" deberán ser accesibles desde la raiz en lugar de prefijarlas como "/notes/" en el URL
